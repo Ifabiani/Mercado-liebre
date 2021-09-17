@@ -5,7 +5,10 @@ const morgan = require('morgan')
 
 //const publicPath = path.resolve(__dirname, './Public');
 
-app.listen(3000, ()=>console.log('Starting server 3000'));
+app.listen(process.env.PORT || 3000, function () {
+    console.log('Servidor corriendo en el puerto 3000')
+});
+
 app.use(express.static(path.resolve(__dirname,'./Public')));
 app.get('/', function (req, res) {
     res.sendFile(path.resolve(__dirname, './Views/home.html'))
